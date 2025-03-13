@@ -209,7 +209,15 @@
     width: 40px;
     margin-right: 10px;
     border-radius: 50%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
+  
+  .user-avtar:hover {
+    cursor: pointer;
+    transform: scale(1.1); /* Slight zoom effect */
+   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  }
+  
 
   .header-user-profile {
     .pc-head-link {

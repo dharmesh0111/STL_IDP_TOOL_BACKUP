@@ -11,4 +11,5 @@ export interface AccountUser {
   emailVerified: boolean;
   verificationToken: string;
   location: string;
+  fullname: string;
 }

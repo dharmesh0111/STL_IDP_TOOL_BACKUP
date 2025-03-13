@@ -106,7 +106,7 @@ export class DefaultComponent  implements OnInit{
   }],
     chart: {
     type: 'bar',
-    height: 350
+    height: 380
   },
   plotOptions: {
     bar: {
@@ -118,7 +118,7 @@ export class DefaultComponent  implements OnInit{
   dataLabels: {
     enabled: false
   },
-  colors: ['#FFAF2F', '#009900', '#FF2F2F'], // Custom colors for each series
+  colors: ['#0067DF', '#009900', '#FF2F2F'], // Custom colors for each series
   stroke: {
     show: true,
     width: 2,
@@ -403,13 +403,13 @@ getMonthRangeArray(fromDate: string, toDate: string): string[] {
         }
         console.log("processedarr ",processedarr);
         this.chartOptions['series'] =  [{
-          name: 'Invoice Processed',
+          name: 'Processed, & Awaiting Verification',
           data: processedarr
         }, {
-          name: 'Invoice Extracted',
+          name: 'Verified & Accepted',
           data: extractedarr
         }, {
-          name: 'Invoice Not Extracted',
+          name: 'Verified & Rejected',
           data: nonextractedarr
         }];
         this.isdataloaded = true;

@@ -1,6 +1,6 @@
-// Angular import
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../../../../core/services/auth.service';
+import { GlobalService } from 'src/app/demo/core/services/global.service';
 
 @Component({
   selector: 'app-nav-right',
@@ -8,32 +8,19 @@ import { AuthenticationService } from '../../../../../core/services/auth.service
   styleUrls: ['./nav-right.component.scss']
 })
 export class NavRightComponent implements OnInit {
+  fullname: string = '';
+
   constructor(
-     private authService: AuthenticationService
-     ) {
-    
-      
-}
+    private authService: AuthenticationService,
+    private globalService: GlobalService
+  ) {}
 
-ngOnInit() {
-}
+  ngOnInit() {
+    this.fullname = this.globalService.getFullname();
+    console.log('Fullname:', this.fullname); // Add this line to debug
+  }
+
   logout() {
-
-    //   this.authService.logout().subscribe({
-    //     next:data=>{
-    //     console.log("dash", JSON.stringify(data));
-       
-    //   },error:  err=> {
-    //     // this.error="Incorrect user name or password";
-    //     // this.spinner.hide();
-    //   }
-    // })
-      this.authService.logout();
-      // if (environment.defaultauth === 'firebase') {
-      //   this.authService.logout();
-      // } else {
-      //   this.authFackservice.logout();
-      // }
-      // this.router.navigate(['/account/login']);
-    }
+    this.authService.logout();
+  }
 }

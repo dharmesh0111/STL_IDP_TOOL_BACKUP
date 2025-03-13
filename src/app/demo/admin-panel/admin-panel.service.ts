@@ -23,11 +23,6 @@ export class AccountUserService {
     return this.httpClient.post<AccountUser>(url, data);
   }
 
-  // deleteUser(id: number): Observable<any> {
-  //   const url = `${this.api.BASE_URL}/api/accountusers/${id}/delete?access_token=${this.tokenService.getTokenId()}`;
-  //   return this.httpClient.delete(url);
-  // }
-
   addUser(user: AccountUser): Observable<AccountUser> {
     const token = this.tokenService.getTokenId();
     const url = `${this.api.BASE_URL}/api/accountusers/adduser?access_token=${this.tokenService.getTokenId()}`;

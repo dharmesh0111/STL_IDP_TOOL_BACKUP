@@ -39,29 +39,36 @@ const NavigationItems = [
   },
   {
     id: 'invoice',
-    title: 'Invoice information',
+    title: 'Invoice Information',
     type: 'item',
     icon: 'ti ti-list',
     url: '/invoice-list',
     classes: 'nav-item'
-  },
-  {
-    id: 'uploadInvoice',
-    title: 'Upload Invoice',
-    type: 'item',
-    icon: 'ti ti-list',
-    url: '/upload-invoice',
-    classes: 'nav-item large-text'
-  },
-  
+  },  
   {
     id: 'adminPanel',
-    title: 'User management',
+    title: 'User Management',
     type: 'item',
-    icon: 'ti ti-number',
+    icon: 'ti ti-user',
     url: '/Report',
     classes: 'nav-item',
     style: "font-size: 2004px;"
+  }, 
+  {
+    id: 'Report1_Validators',
+    title: 'Report 1 - Validators',
+    type: 'item',
+    icon: 'ti ti-report',
+    url: '/Report_validators',
+    classes: 'nav-item',
+  }, 
+  {
+    id: 'Report2_Aging',
+    title: 'Report 2 - Aging',
+    type: 'item',
+    icon: 'ti ti-report',
+    url: '/Report_Aging',
+    classes: 'nav-item',
   }
 ];
 
@@ -73,14 +80,12 @@ export class NavigationItem {
 
 
     // Clone the original NavigationItems to avoid mutating it
-    const filteredNavigationItems = JSON.parse(JSON.stringify(NavigationItems));
+    let filteredNavigationItems = JSON.parse(JSON.stringify(NavigationItems));
 
     // Filter out the Admin Panel if the user is not an Admin
     if (this.globalService.getRealm() !== 'Admin') {
-      const adminPanelIndex = filteredNavigationItems.findIndex(item => item.id === 'adminPanel');
-      if (adminPanelIndex !== -1) {
-        filteredNavigationItems.splice(adminPanelIndex, 1);
-      }
+      const adminItems = ['adminPanel', 'Report1_Validators', 'Report2_Aging'];
+      filteredNavigationItems = filteredNavigationItems.filter(item => !adminItems.includes(item.id));
     }
     return filteredNavigationItems;
   }

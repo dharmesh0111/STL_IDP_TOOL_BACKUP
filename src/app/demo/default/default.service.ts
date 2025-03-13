@@ -21,9 +21,7 @@ export class DefaultService {
   getDahshoabrdcount(): Observable<any> {
     const http = new HttpClient(this.handler);
     const location = this.globalService.getUserLocation(); // Get the location from UserLocation
-    console.log("Location being sent to backend:", location); // Debugging line
     const url = `${this.api.BASE_URL}/api/invoices/dashboardcount?filter={"location":"${location}"}&&access_token=${this.tokenService.getTokenId()}`;
-    console.log("API URL:", url); // Debugging line
     return http.get<any>(url);
   }
   

@@ -87,6 +87,11 @@ export default class LoginComponent implements OnInit {
         sessionStorage.setItem('realm', data.user?.realm ?? "");
         sessionStorage.setItem('email', data.user?.email ?? "");
 
+        // Ensure fullname is correctly set
+        const fullname = data.user?.fullname ?? "";
+        sessionStorage.setItem('fullname', fullname);
+        this.globalService.setFullname(fullname);
+
         this.globalService.setRealm(data.user?.realm ?? "");
         this.globalService.setUserId(data.user?.id ?? "");
         this.globalService.setUserLocation(data.user?.location ?? '');
@@ -120,6 +125,11 @@ export default class LoginComponent implements OnInit {
               sessionStorage.setItem('accountId', data.user?.token ?? "0");
               sessionStorage.setItem('realm', data.user?.realm ?? "");
               sessionStorage.setItem('email', data.user?.email ?? "");
+
+              // Ensure fullname is correctly set
+              const fullname = data.user?.fullname ?? "";
+              sessionStorage.setItem('fullname', fullname);
+              this.globalService.setFullname(fullname);
 
               this.globalService.setRealm(data.user?.realm ?? "");
               this.globalService.setUserId(data.user?.id ?? "");

@@ -5,13 +5,13 @@
 </ngx-spinner>
 <div class="row"  *ngIf="isdataloaded">
   <div class="col-xl-4 col-md-6">
-    <div class="card  overflow-hidden ">
+    <div class="card1  overflow-hidden ">
       <div class="card-body">
-        <p class="mb-0 opacity-50 text-sm">
+        <p class="mb-0  text-sm text-primary mt-1">
           Processed, & Awaiting Verification</p>
         <!-- <div class="d-flex align-items-center"> -->
           <div class="ms-2">
-            <h1 class="f-w-600 mb-1 text-warning text-center">{{processedcount}}</h1>
+            <h1 class="f-w-600 mb-1 text-primary text-center mt-3">{{processedcount}}</h1>
           </div>
         <!-- </div> -->
       </div>
@@ -19,12 +19,12 @@
   </div>
   <div class="col-xl-4 col-md-6">
     
-    <div class="card overflow-hidden">
+    <div class="card2 overflow-hidden">
       <div class="card-body">
-        <p class="mb-0 opacity-50 text-sm">Verified & Accepted</p>
+        <p class="mb-0  text-sm text-success mt-1">Verified & Accepted</p>
         <!-- <div class="d-flex align-items-center"> -->
           <div class="ms-2">
-            <h1 class="f-w-600 mb-1 text-success  text-center">{{extractedcount}}</h1>
+            <h1 class="f-w-600 mb-1 text-success  text-center mt-3">{{extractedcount}}</h1>
           </div>
         <!-- </div> -->
       </div>
@@ -32,12 +32,12 @@
   </div>
   <div class="col-xl-4 col-md-6">
     
-    <div class="card  overflow-hidden">
+    <div class="card3  overflow-hidden ">
       <div class="card-body">
-        <p class="mb-0 opacity-50 text-sm">Verified & Rejected</p>
+        <p class="mb-0  text-sm text-red mt-1">Verified & Rejected</p>
         <!-- <div class="d-flex align-items-center"> -->
           <div class="ms-2">
-            <h1 class="f-w-600 mb-1 text-red text-center">{{nonextractedcount}}</h1>
+            <h1 class="f-w-600 mb-1 text-red text-center mt-3">{{nonextractedcount}}</h1>
           </div>
         <!-- </div> -->
       </div>
@@ -45,7 +45,7 @@
   </div>
   
 
-  <div class="col-xl-12 col-md-12">
+  <div class="col-xl-12 col-md-12 mt-4">
     <!-- <app-bar-chart /> -->
     <div class="card">
       <div class="card-body">

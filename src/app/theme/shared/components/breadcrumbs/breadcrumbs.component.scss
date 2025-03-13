@@ -1,0 +1,15 @@
+.icon-tabler-home {
+    width: 32px !important;  /* Adjust as needed */
+    height: 32px !important;
+  }
+
+  .breadcrumb-item a {
+    font-size: 23px; /* Adjust as needed */
+    font-weight: 600; /* Optional: Makes text bold */
+  }
+  .breadcrumb-item + .breadcrumb-item::before {
+    font-size: 24px; /* Adjust as needed */
+    // font-weight: bold; /* Optional */
+  }
+  
+  

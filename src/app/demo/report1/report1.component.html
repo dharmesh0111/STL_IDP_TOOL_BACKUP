@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-end">
+<button class="add-user-btn btn btn-primary mb-1" type="button" (click)="openDateFilterModal(dateFilterContent)">
+  Filter by Date
+</button>
+</div>
+<div class="container">
+<!-- Button to open the modal -->
+
+
+
+
+
+<!-- Modal for date filtering -->
+<ng-template #dateFilterContent>
+  <div class="modal-header">
+    <h5 class="modal-title">Filter by Date</h5>
+    <button type="button" class="btn-close" (click)="closeDateFilterModal()" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="dateFilterForm"> 
+      <!-- Start Date Input -->
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="startDate"
+          formControlName="startDate"
+          (change)="onStartDateChange($event)"
+          [max]="dateFilterForm.get('endDate').value"
+        />
+        <div *ngIf="dateFilterForm.get('startDate').invalid && dateFilterForm.get('startDate').touched" class="text-danger">
+          Start Date is required.
+        </div>
+      </div>
+
+      <!-- End Date Input -->
+      <div class="mb-3">
+        <label for="endDate" class="form-label">End Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="endDate"
+          formControlName="endDate"
+          (change)="onEndDateChange($event)"
+          [min]="dateFilterForm.get('startDate').value"
+        />
+        <div *ngIf="dateFilterForm.get('endDate').invalid && dateFilterForm.get('endDate').touched" class="text-danger">
+          End Date is required.
+        </div>
+        <div *ngIf="dateFilterForm.errors?.['dateRangeInvalid'] && dateFilterForm.get('endDate').touched" class="text-danger">
+          End Date cannot be earlier than Start Date.
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="closeDateFilterModal()">Cancel</button>
+    <button type="button" class="btn btn-success" (click)="clearDateFilter()">Clear</button>
+    <button type="button" class="btn btn-primary" (click)="applyDateFilter()" [disabled]="dateFilterForm.invalid">Apply</button>
+  </div>
+</ng-template>
+
+<!-- Error Message -->
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<!-- Validator Report Table -->
+<table class="table custom-table mt-4">
+  <thead>
+    <tr>
+      <th style="width: 5%;" >Sr. No</th>
+      <th style="width: 15%;" >Validator Name</th>
+      <th style="width: 15%;" >Role</th>
+      <th style="width: 15%;" >Location</th>
+      <th style="width: 15%;" >Total Invoice</th>
+      <th style="width: 15%;" >Others</th>
+      <th style="width: 15%;" >Accepted</th>
+      <th style="width: 10%;" >Rejected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let report of validatorReports; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td> <span>{{ report.validator_name }}</span> </td>
+      <td> <span>{{ report.role }}</span> </td>
+      <td> <span>{{ report.location}}</span> </td>
+      <td> <span>{{ report.total_invoices }}</span> </td>
+      <td> <span>{{ report.total_invoices - (report.accepted_count + report.rejected_count) }}</span> </td>
+      <td> <span>{{ report.accepted_count }}</span> </td>
+      <td> <span>{{ report.rejected_count }}</span> </td>
+    </tr>
+  </tbody>
+</table>
+</div>

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { GuestComponent } from './theme/layout/guest/guest.component';
+import { Report1Component } from './demo/report1/report1.component';
 
 
 const routes: Routes = [
@@ -64,6 +65,14 @@ const routes: Routes = [
       {
         path: 'user-register',
         loadComponent: () => import('./demo/user-register/user-register.component').then(c => c.UserRegisterComponent)
+      },
+      {
+        path: 'Report_validators',
+        loadComponent: () => import('./demo/report1/report1.component').then(c => c.Report1Component)
+      },
+      {
+        path: 'Report_Aging',
+        loadComponent: () => import('./demo/report2/report2.component').then(c => c.Report2Component)
       },
         
 

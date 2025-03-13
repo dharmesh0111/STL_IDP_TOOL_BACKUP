@@ -26,7 +26,8 @@ export class UserRegisterComponent implements OnInit {
     email: '',
     emailVerified: false,
     verificationToken: '',
-    location: ''
+    location: '',
+    fullname:''
   };
   confirmPassword: string = '';
 

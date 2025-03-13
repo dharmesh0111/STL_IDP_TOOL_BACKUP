@@ -5,9 +5,11 @@ ngx-spinner {
   transform: translate(-50%, -50%);
   z-index: 9999;
 }
+
 .nav-tabs {
   border-bottom: none !important;
 }
+
 body.berry-dark .nav-tabs .nav-link,
 body.berry-dark .tab-content {
   box-shadow: none !important;
@@ -25,19 +27,87 @@ body.berry-dark .tab-content {
   }
 }
 
-.total-income-card {
-  .avatar {
-    background: #1565c0;
-  }
+.total-income-card .avatar {
+  background: #1565c0;
 }
 
-.text-success{
-  color: #009900 !important;
+.text-success {
+  color: #00ad00 !important;
 }
-.text-red{
-  color: #FF2F2F !important;
+
+.text-red {
+  color: #ff1c1c !important;
 }
-.text-warning{
+
+.text-warning {
   color: #FFAF2F !important;
 }
 
+/* General Card Styling */
+.card {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.20);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+  font-weight: bold;
+}
+
+/* Individual Cards with Gradient Backgrounds */
+.card1, .card2, .card3 {
+  margin: 20px auto;
+  padding: 25px;
+  height: 180px;
+  width: 100%;
+  max-width: 430px;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card1 {
+  background: linear-gradient(135deg, #e3f2fd, #4aabfa);
+}
+
+.card2 {
+  background: linear-gradient(135deg, #e8f5e9, #6ebd72);
+}
+
+.card3 {
+  background: linear-gradient(135deg, #ffebee, #eb5d5a);
+}
+
+.card1:hover, .card2:hover, .card3:hover {
+  transform: scale(1.05);
+}
+
+/* Text Styling */
+.card1 p, .card2 p, .card3 p {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card1 h1, .card2 h1, .card3 h1 {
+  font-weight: bold;
+  font-size: 55px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card1, .card2, .card3 {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+  }
+  .card1 h1, .card2 h1, .card3 h1 {
+    font-size: 45px;
+  }
+}

@@ -1,11 +1,37 @@
 .nav-item {
-    // border-right: 0.5px solid rgba(0, 0, 0, .125) !important;
-    border-bottom: 0.5px solid rgba(0, 0, 0, .125) !important;
-    // border-left: 0.5px solid rgba(0, 0, 0, .125) !important;
+    position: relative;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.125) !important;
+    overflow: hidden; 
 }
 
- li.active >a,  li>a:hover {
+.nav-item a {
+    position: relative;
+    display: block;
     color: #595959 !important;
-    background-color: #D3E8FF !important;
-    border-left: 5px solid #0067DF !important;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-item a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #0067DF; 
+    transition: width 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.nav-item:hover a::before {
+    width: 100%;
+}
+
+.nav-item.active > a, 
+.nav-item:hover > a {
+    color: white !important; 
+    position: relative;
+    z-index: 1;
 }

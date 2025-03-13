@@ -105,31 +105,6 @@ export class AdminPanelComponent implements OnInit {
     });
   }
 
-  // deleteUser(id: number): void {
-  //   console.log(this.tokenService.getTokenId());
-  //   Swal.fire({
-  //     title: 'Are you sure?',
-  //     text: "You won't be able to revert this!",
-  //     icon: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Yes, delete it!'
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.accountUserService.deleteUser(id).subscribe({
-  //         next: (response) => {
-  //           console.log('User deleted successfully', response);
-  //           Swal.fire("Success", "User deleted successfully!", "success");
-  //           this.getAccountUserList(); // Refresh the user list
-  //         },
-  //         error: (err) => {
-  //           Swal.fire("Error", "Failed to delete user. Please try again.", "error");
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
 
   navigateToUserRegister(): void {
     this.router.navigate(['/user-register']);
